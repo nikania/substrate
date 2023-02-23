@@ -1171,6 +1171,7 @@ pub mod pallet {
 	use super::*;
 	use frame_support::traits::StorageVersion;
 	use frame_system::{ensure_signed, pallet_prelude::*};
+use sp_core::parameter_types;
 
 	/// The current storage version.
 	const STORAGE_VERSION: StorageVersion = StorageVersion::new(3);
@@ -1189,6 +1190,7 @@ pub mod pallet {
 		type WeightInfo: weights::WeightInfo;
 
 		/// The nominating balance.
+		#[pallet::no_default]
 		type Currency: Currency<Self::AccountId>;
 
 		/// The type that is used for reward counter.
@@ -1231,6 +1233,7 @@ pub mod pallet {
 		type U256ToBalance: Convert<U256, BalanceOf<Self>>;
 
 		/// The interface for nominating.
+		#[pallet::no_default]
 		type Staking: StakingInterface<Balance = BalanceOf<Self>, AccountId = Self::AccountId>;
 
 		/// The amount of eras a `SubPools::with_era` pool can exist before it gets merged into the
