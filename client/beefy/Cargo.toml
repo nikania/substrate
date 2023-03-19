@@ -36,6 +36,7 @@ sp-core = { version = "7.0.0", path = "../../primitives/core" }
 sp-keystore = { version = "0.13.0", path = "../../primitives/keystore" }
 sp-mmr-primitives = { version = "4.0.0-dev", path = "../../primitives/merkle-mountain-range" }
 sp-runtime = { version = "7.0.0", path = "../../primitives/runtime" }
+cumulus-client-consensus-common = { git="https://github.com/paritytech/cumulus.git", branch = "polkadot-v0.9.38" }
 
 [dev-dependencies]
 serde = "1.0.136"

@@ -38,6 +38,8 @@ use crate::{
 	LOG_TARGET,
 };
 
+use cumulus_client_consensus_common::ParachainBlockImportMarker;
+
 /// A block-import handler for BEEFY.
 ///
 /// This scans each imported block for BEEFY justifications and verifies them.
@@ -168,4 +170,9 @@ where
 	) -> Result<ImportResult, Self::Error> {
 		self.inner.check_block(block).await
 	}
+}
+
+impl<Block: BlockT, BE, Runtime, I> ParachainBlockImportMarker
+	for BeefyBlockImport<Block, BE, Runtime, I>
+{
 }
